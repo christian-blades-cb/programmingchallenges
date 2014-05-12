@@ -14,7 +14,7 @@ describe BlackJack::Cards::StandardCard do
   describe :add_value_to do
     it "should add the given card value to the array" do
       values = []
-      expected_values = [{ "1 H" => 1 }]
+      expected_values = [{ "1 of Hearts" => 1 }]
       target = BlackJack::Cards::StandardCard.new({ value: "1", suite: { H: "Hearts" } })
     
       expect(target.add_value_to(values)).to eq(expected_values)

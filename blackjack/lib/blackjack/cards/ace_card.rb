@@ -17,7 +17,7 @@ module BlackJack
             end
           }
 
-          values << { @face_value.to_s + ' of ' + @suite.keys[0].to_s => 1 }
+          values << { @face_value.to_s + ' of ' + @suite.values[0].to_s => 1 }
         else
           super values
         end

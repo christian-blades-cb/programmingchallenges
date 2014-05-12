@@ -24,4 +24,49 @@ describe BlackJack::Dealer do
       expect(target.hands_played).to eq(1)
     end 
   end
+
+  describe :has_cards? do
+    it "should return true when cards are still in the deck" do
+      target = BlackJack::Dealer.new(1)
+      expect(target.has_cards?).to eq(true)
+    end
+
+    it "should return false when no cards are left in the deck" do
+      target = BlackJack::Dealer.new(1)
+      target.instance_variable_set(:@cards, [])
+      expect(target.has_cards?).to eq(false)
+    end
+  end
+
+  describe :has_blackjack? do
+    it "should return true" do
+      target = BlackJack::Dealer.new(1)
+      hand = [
+        { "Ace of Spades" => 11 },
+        { "King of Hearts" => 10 }
+      ]
+      expect(target.has_blackjack?(hand)).to eq(true)
+    end
+
+    it "should return false" do
+      target = BlackJack::Dealer.new(1)
+      hand = [
+        { "King of Spades" => 10 },
+        { "King of Hearts" => 10 }
+      ]
+      expect(target.has_blackjack?(hand)).to eq(false)
+    end
+
+    it "should advance the blackjack counter" do
+      target = BlackJack::Dealer.new(1)
+      hand = [
+        { "Ace of Spades" => 11 },
+        { "King of Hearts" => 10 }
+      ]
+
+      expect(target.blackjacks).to eq(0)
+      target.has_blackjack?(hand)
+      expect(target.blackjacks).to eq(1)
+    end
+  end
 end

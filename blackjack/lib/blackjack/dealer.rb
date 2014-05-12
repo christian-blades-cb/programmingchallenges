@@ -44,6 +44,9 @@ module BlackJack
         puts "BLACK JACK!"
 
         @blackjacks += 1
+        true
+      else
+        false
       end
     end
   end

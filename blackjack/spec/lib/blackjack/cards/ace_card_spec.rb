@@ -14,23 +14,23 @@ describe BlackJack::Cards::AceCard do
   describe :add_value_to do
     it "should add the given card value to the array" do
       values = []
-      expected_values = [{ "Ace H" => 11 }]
+      expected_values = [{ "Ace of Hearts" => 11 }]
       target = BlackJack::Cards::AceCard.new({ value: "Ace", suite: { H: "Hearts" } })
     
       expect(target.add_value_to(values)).to eq(expected_values)
     end
 
     it "should add the given card with value of 1" do
-      values = [{ "Ace S" => 1 }]
-      expected_values = [{ "Ace S" => 1 }, { "Ace H" => 1 }]
+      values = [{ "Ace of Spades" => 1 }]
+      expected_values = [{ "Ace of Spades" => 1 }, { "Ace of Hearts" => 1 }]
       target = BlackJack::Cards::AceCard.new({ value: "Ace", suite: { H: "Hearts" } })
     
       expect(target.add_value_to(values)).to eq(expected_values)
     end
 
     it "should set all ace card values to 1" do
-      values = [{ "Ace S" => 11 }]
-      expected_values = [{ "Ace S" => 1 }, { "Ace H" => 1 }]
+      values = [{ "Ace of Spades" => 11 }]
+      expected_values = [{ "Ace of Spades" => 1 }, { "Ace of Hearts" => 1 }]
       target = BlackJack::Cards::AceCard.new({ value: "Ace", suite: { H: "Hearts" } })
     
       expect(target.add_value_to(values)).to eq(expected_values)

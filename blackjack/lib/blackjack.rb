@@ -17,7 +17,7 @@ module BlackJack
         @dealer.has_blackjack?(hand)
       end
 
-      puts "After #{@dealer.hands_played} hands, there were #{@dealer.blackjacks} at #{(@dealer.blackjacks.to_f / @dealer.hands_played.to_f) * 100}%"
+      puts "After #{@dealer.hands_played} hands, there were #{@dealer.blackjacks} black jacks at #{(@dealer.blackjacks.to_f / @dealer.hands_played.to_f) * 100}%"
     end
   end
 end
