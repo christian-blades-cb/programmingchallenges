@@ -18,6 +18,7 @@ module BlackJack
       @cards.shuffle!
 
       @hands_played = 0
+      @blackjacks = 0
     end
 
     def deal_hand()
@@ -39,7 +40,7 @@ module BlackJack
       hand.each { |card| card.values.each { |value| total += value } }
 
       if total == 21
-        hand.each { |card| card.keys.each { |key| print key } }
+        hand.each { |card| card.keys.each { |key| print key + ', ' } }
         puts "BLACK JACK!"
 
         @blackjacks += 1

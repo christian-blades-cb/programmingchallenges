@@ -6,7 +6,7 @@ module BlackJack
       attr_reader :value
 
       def add_value_to(values)   
-        values << { @face_value.to_s + ' ' + @suite.keys[0].to_s => @value }
+        values << { @face_value.to_s + ' of ' + @suite.values[0].to_s => @value }
       end
 
       def ==(other_object)
