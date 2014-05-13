@@ -14,7 +14,7 @@ module BlackJack
       hand = []
       while @dealer.has_cards?
         hand = @dealer.deal_hand
-        while !@dealer.has_blackjack?(hand) && @dealer.has_cards? && calculate_hand_value(hand) < 11
+        while !@dealer.has_blackjack?(hand) && @dealer.has_cards? && calculate_hand_value(hand) <= 11
           @dealer.hit_me(hand)
         end
       end
