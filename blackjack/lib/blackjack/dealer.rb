@@ -24,23 +24,26 @@ module BlackJack
     def deal_hand()
       hand = []
       2.times { 
-        card = @cards.shift
-        card.add_value_to(hand)
+        add_next_card_to_hand(hand)
       }
       @hands_played += 1
       hand
+    end
+    
+    def hit_me(current_hand)
+      add_next_card_to_hand(current_hand)
     end
 
     def has_cards?()
       @cards.length > 0
     end
 
-    def has_blackjack?(hand)
+    def has_blackjack?(current_hand)
       total = 0
-      hand.each { |card| card.values.each { |value| total += value } }
+      current_hand.each { |card| card.values.each { |value| total += value } }
 
       if total == 21
-        hand.each { |card| card.keys.each { |key| print key + ', ' } }
+        current_hand.each { |card| card.keys.each { |key| print key + ', ' } }
         puts "BLACK JACK!"
 
         @blackjacks += 1
@@ -48,6 +51,12 @@ module BlackJack
       else
         false
       end
+    end
+    
+    private
+    def add_next_card_to_hand(current_hand)
+      card = @cards.shift
+      card.add_value_to(current_hand) unless card.nil?
     end
   end
 end
