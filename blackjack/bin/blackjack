@@ -1,0 +1,5 @@
+#!/usr/bin/env ruby
+
+require 'blackjack'
+game = BlackJack::Game.new(ARGV[0].to_i)
+game.play_until_no_cards_left()
