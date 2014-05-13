@@ -1,0 +1,5 @@
+#!/usr/bin/env ruby
+require_relative '../blackjack/lib/play_blackjack'
+
+PlayBlackJackCLI.start(ARGV)
+
